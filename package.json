@@ -1,0 +1,66 @@
+{
+  "name": "log-deprecated-notices",
+  "version": "0.5.0",
+  "description": "Logs the usage of deprecated files, functions, hooks, and function arguments, offers the alternative if available, and identifies where the deprecated functionality is being used. WP_DEBUG not required (but its general use is strongly recommended).",
+  "main": "index.js",
+  "scripts": {
+    "build": "yarn run lint &&  node_modules/.bin/webpack --config config/webpack.config.js --env prod --mode=production && node ./config/versioning.js",
+    "dev": "node_modules/.bin/webpack --config config/webpack.config.js --watch --env dev --mode=development",
+    "lint": "eslint .",
+    "test": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaronjorbin/log-deprecated-notices.git"
+  },
+  "keywords": [
+    "wordpress"
+  ],
+  "author": "Aaron Jorbin and Andrew Nacin",
+  "license": "GPL-2.0+",
+  "bugs": {
+    "url": "https://github.com/aaronjorbin/log-deprecated-notices/issues"
+  },
+  "devDependencies": {
+    "@wordpress/deprecated": "^2.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^5.6.1",
+    "eslint-config-wordpress": "^2.0.0",
+    "eslint-plugin-jest": "^21.2.0",
+    "jest": "^23.6.0",
+    "jest-environment-jsdom-latest": "^20.0.4",
+    "jquery": "^3.2.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.js?(x)",
+      "<rootDir>/src/**/?(*.)(spec|test).js?(x)"
+    ],
+    "testEnvironment": "jsdom-latest",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest"
+    }
+  },
+  "dependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/polyfill": "^7.0.0",
+    "@wordpress/hooks": "^2.0.0"
+  },
+  "homepage": "http://wordpress.org/extend/plugins/log-deprecated-notices/"
+}

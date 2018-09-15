@@ -14,6 +14,8 @@
 
 if ( ! class_exists( 'Deprecated_Log' ) ) :
 
+require 'version.php';
+
 /**
  * Base class.
  *
@@ -839,7 +841,7 @@ jQuery(document).ready( function($) {
 
 	/**
  	 * Old Constructor kept incase it's being called
-	 */ 
+	 */
 	function Deprecated_Log() {
 		$this->__construct();
 	}
